@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+    <title>like</title>
+</head>
+
+<body>
+    <div class="container d-flex   align-items-center " style="height:100vh">
+        <div class="card" style="width: 36rem;height: 30rem;">
+
+            <img src="https://cdn.galleries.smcloud.net/t/galleries/gf-q37B-9pvU-8kdP_kaczynski-le-pen-orban-664x442-nocrop.jpg"
+                class="card-img-top" alt="...">
+            <% myhome.forEach(hm=>{%>
+            <a href="/update/61b297fe51e2230833fbb7b0">
+                <div class="like">❤️<span class="span"><sup><%=hm.like%></sup></span></div>
+            </a>
+            <div class="negativ"><a href="/negativ/61b297fe51e2230833fbb7b0">🍄<span
+                        class="span__negativ"><sup><%=hm.negativ%></sup></span></a>
+            </div>
+            <%})%>
+            <div class="card-body">
+                <h3 class="text-center">Wspaniałe Trio Światowej Polityki</h3>
+            </div>
+        </div>
+        <div class="card px-4" style="width: 36rem; height: 30rem;">
+            <form action="comments" method="post">
+                <div class="mb-3">
+                    <label for="formGroupExampleInput" class="form-label">Email</label>
+                    <input type=" email" class="form-control" name="email" placeholder="name@exemple.com" required>
+                </div>
+                <div class="mb-3">
+                    <label for="formGroupExampleInput2" class="form-label">Komentarz</label>
+                    <textarea type="text" class="form-control" name="text"
+                        placeholder="Napisz swój komentarz..." required></textarea>
+                </div>
+                <button class="btn btn-primary " type="submit">Wyślij</button>
+            </form>
+           <div class="mesage overflow-auto mt-3">
+            <% mycomments.forEach(cm=>{%>
+               <span class="fw-bold">Autor: <%=cm.email.split('@')[0]%></span> <span class="ms-5">Data:<%=cm.createdAt.toLocaleDateString()%></span>
+               <p> <%=cm.text%></p>
+               <%})%> 
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
